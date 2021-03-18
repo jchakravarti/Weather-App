@@ -1,0 +1,43 @@
+.container {
+  border: 1px solid white;
+  border-radius: 10px;
+  color: white;
+}
+body {
+  padding-top: 20px;
+  background-color: #1e2024;
+}
+
+#search-form {
+  padding-top: 20px;
+}
+h1,
+h2,
+h3 {
+  font-family: monospace;
+  font-weight: normal;
+}
+h1 {
+  font-size: 20px;
+}
+h2,
+h3 {
+  font-size: 18px;
+}
+.row {
+  padding-top: 30px;
+  padding-bottom: 10px;
+  font-family: monospace;
+  font-size: 18px;
+}
+.temp {
+  font-size: 70px;
+  color: #52b673;
+  line-height: 1;
+}
+.tempUnit {
+  position: relative;
+  top: -32px;
+  font-size: 13px;
+  left: -36px;
+}
