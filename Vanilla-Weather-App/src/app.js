@@ -1,25 +1,36 @@
-function showFtemp() {
-let selectF = document.querySelector(".temp");
-selectF.innerHTML = "45"
+
+
+function formatDate(timestamp) {
+    let date = new Date(timestamp);
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    let day = days[date.getDay()];
+    let hour = date.getHours();
+if (hour < 10) {
+    hour = `0${hour}`;
 }
-let fahrenheitButton = document.querySelector("#degree-F");
-fahrenheitButton.addEventListener("click", showFtemp);
-
-
-function showCtemp() {
-   let selectC = document.querySelector(".temp");
-selectC.innerHTML = "7" 
+let minutes = date.getMinutes();
+if (minutes < 10) {
+    minutes = `0${minutes}`;
 }
-let celciusButton = document.querySelector("#degree-C");
-celciusButton.addEventListener("click", showCtemp);
+return `${day} ${hour}:${minutes}`;
 
+}
 
 function displayTemperature(response) {
-document.querySelector("h1").innerHTML = response.data.name;
-document.querySelector(".temp").innerHTML = Math.round(response.data.main.temp);
-document.querySelector("h3").innerHTML = response.data.weather[0].main;
-document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
+    let temperatureElement = document.querySelector("#temp");
+    let cityElement = document.querySelector("#city");
+    let descriptionElement = document.querySelector("#description");
+    let humidityElement = document.querySelector("#humidity");
+    let windElement = document.querySelector("#wind");
+    let dateElement = document.querySelector("#date");
+celsiusTemp = response.data.main.temp;
+    
+temperatureElement.innerHTML = Math.round(celsiusTemp);
+cityElement.innerHTML = response.data.name;
+descriptionElement.innerHTML = response.data.weather[0].description;
+humidityElement.innerHTML = response.data.main.humidity;
+windElement.innerHTML = Math.round(response.data.wind.speed);
+dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function changeCity(event) {

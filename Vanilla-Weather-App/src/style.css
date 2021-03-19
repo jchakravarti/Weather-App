@@ -16,6 +16,7 @@ h2,
 h3 {
   font-family: monospace;
   font-weight: normal;
+  text-transform: capitalize;
 }
 h1 {
   font-size: 20px;
@@ -30,7 +31,7 @@ h3 {
   font-family: monospace;
   font-size: 18px;
 }
-.temp {
+#temp {
   font-size: 70px;
   color: #52b673;
   line-height: 1;
