@@ -42,3 +42,13 @@ h3 {
   font-size: 13px;
   left: -15px;
 }
+
+.active {
+  color: #52b673;
+  text-decoration: none;
+}
+
+.active:hover {
+  color: #52b673;
+  cursor: default;
+}

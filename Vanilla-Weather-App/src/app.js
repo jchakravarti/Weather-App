@@ -1,5 +1,3 @@
-
-
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -37,6 +35,22 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
 
 }
 
+function showFtemperature(event) {
+    event.preventDefault();
+    fahrenheitLink.classList.add("active");
+    celsiusLink.classList.remove("active");
+    let temperatureElement = document.querySelector("#temp");
+    temperatureElement.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+}
+
+function showCtemperature(event) {
+    event.preventDefault();
+    fahrenheitLink.classList.remove("active");
+    celsiusLink.classList.add("active");
+    let temperatureElement = document.querySelector("#temp");
+    temperatureElement.innerHTML = Math.round(celsiusTemp);
+}
+
 function changeCity(event) {
     event.preventDefault();
     let apiKey = "98ba3df7ef91e3454412bee7a0392f55";
@@ -44,5 +58,14 @@ function changeCity(event) {
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(displayTemperature);
 }
+
+let celsiusTemp = null;
+
 let searchCity = document.querySelector("#search-form");
 searchCity.addEventListener("submit", changeCity);
+
+let fahrenheitLink = document.querySelector("#degree-F");
+fahrenheitLink.addEventListener("click", showFtemperature);
+
+let celsiusLink = document.querySelector("#degree-C");
+celsiusLink.addEventListener("click", showCtemperature);
