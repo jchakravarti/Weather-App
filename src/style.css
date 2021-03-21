@@ -57,3 +57,7 @@ ul {
   list-style: none;
   display: inline;
 }
+
+#forecast {
+  text-align: center;
+}
